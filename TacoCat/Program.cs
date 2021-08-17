@@ -11,12 +11,12 @@ public static class TacoCat {
             reversed += input[index];
         }
 
-        // Limit comparison to only alphanumeric characters.
+        // Limit comparison to only letter characters.
         reversed = Regex.Replace(reversed.ToLower(), regex, "");
         input = Regex.Replace(input.ToLower(), regex, "");
 
-        // Handle a case like -- which is the same reversed but is not
-        // a valid Palindrome.
+        // Handle a case where the string is empty after the regex.
+        // An empty string comparison should not test true for Palindrome.
         if (reversed.Equals(string.Empty) || input.Equals(string.Empty)) {
             return false;
         }
